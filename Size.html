@@ -1,0 +1,63 @@
+<div class="sbsize-toggle-container">
+<div class="sbsize-unit-labels">
+<span>Inches</span> <label class="sbsize-toggle"> <input type="checkbox" onclick="togglesbsizeUnits()"> <span class="sbsize-slider"></span> </label> <span>Centimeters</span>
+</div>
+</div>
+<table class="sbsize-table">
+<thead>
+<tr>
+<th>Size Label</th>
+<th>XXS</th>
+<th>XS</th>
+<th>S</th>
+<th>M</th>
+<th>L</th>
+<th>XL</th>
+<th>2XL</th>
+<th>3XL</th>
+<th>4XL</th>
+<th>5XL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Chest</th>
+<td class="sbsize-inch" data-inch="36" data-cm="92">36"</td>
+<td class="sbsize-inch" data-inch="38" data-cm="97">38"</td>
+<td class="sbsize-inch" data-inch="40" data-cm="102">40"</td>
+<td class="sbsize-inch" data-inch="42" data-cm="107">42"</td>
+<td class="sbsize-inch" data-inch="44" data-cm="112">44"</td>
+<td class="sbsize-inch" data-inch="46" data-cm="117">46"</td>
+<td class="sbsize-inch" data-inch="48" data-cm="122">48"</td>
+<td class="sbsize-inch" data-inch="50" data-cm="127">50"</td>
+<td class="sbsize-inch" data-inch="52" data-cm="132">52"</td>
+<td class="sbsize-inch" data-inch="54" data-cm="137">54"</td>
+</tr>
+<tr>
+<th>Waist</th>
+<td class="sbsize-inch" data-inch="29" data-cm="74">29"</td>
+<td class="sbsize-inch" data-inch="30" data-cm="76">30"</td>
+<td class="sbsize-inch" data-inch="32" data-cm="82">32"</td>
+<td class="sbsize-inch" data-inch="34" data-cm="87">34"</td>
+<td class="sbsize-inch" data-inch="36" data-cm="92">36"</td>
+<td class="sbsize-inch" data-inch="38" data-cm="97">38"</td>
+<td class="sbsize-inch" data-inch="40" data-cm="102">40"</td>
+<td class="sbsize-inch" data-inch="42" data-cm="107">42"</td>
+<td class="sbsize-inch" data-inch="44" data-cm="112">44"</td>
+<td class="sbsize-inch" data-inch="46" data-cm="117">46"</td>
+</tr>
+</tbody>
+</table>
+<script>
+  document.getElementById('sbsizeToggle').addEventListener('change', togglesbsizeUnits);
+
+  function togglesbsizeUnits() {
+    const cells = document.querySelectorAll('td.sbsize-inch');
+    cells.forEach(cell => {
+      if (cell.textContent.includes('"')) {
+        cell.textContent = cell.getAttribute('data-cm') + ' cm';
+      } else {
+        cell.textContent = cell.getAttribute('data-inch') + '"';
+      }
+    });
+  }</script>
